@@ -23,7 +23,7 @@ jobs:
           git checkout main
           git checkout upstream-branch -- docker
           cd docker
-          ./persistent_volumes.sh build
+          ./persistent.sh build
 
       - name: Commit changes if updates exist
         run: |
