@@ -7,65 +7,65 @@
 # Shared configuration using YAML anchors and env_file
 x-shared-api-worker-config: &shared-api-worker-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ${ENVS_HOST:-./envs}/core-services/shared.env
       required: false
-    - path: ./envs/core-services/api.env
+    - path: ${ENVS_HOST:-./envs}/core-services/api.env
       required: false
-    - path: ./envs/security.env
+    - path: ${ENVS_HOST:-./envs}/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ${ENVS_HOST:-./envs}/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/milvus-standalone.env
       required: false
-    - ./.env
+    - ${DOT_ENV:-./.env}
   networks:
     - ssrf_proxy_network
     - default
@@ -73,65 +73,65 @@ x-shared-api-worker-config: &shared-api-worker-config
 
 x-shared-worker-config: &shared-worker-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ${ENVS_HOST:-./envs}/core-services/shared.env
       required: false
-    - path: ./envs/core-services/worker.env
+    - path: ${ENVS_HOST:-./envs}/core-services/worker.env
       required: false
-    - path: ./envs/security.env
+    - path: ${ENVS_HOST:-./envs}/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ${ENVS_HOST:-./envs}/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/milvus-standalone.env
       required: false
-    - ./.env
+    - ${DOT_ENV:-./.env}
   networks:
     - ssrf_proxy_network
     - default
@@ -139,65 +139,65 @@ x-shared-worker-config: &shared-worker-config
 
 x-shared-worker-beat-config: &shared-worker-beat-config
   env_file:
-    - path: ./envs/core-services/shared.env
+    - path: ${ENVS_HOST:-./envs}/core-services/shared.env
       required: false
-    - path: ./envs/core-services/worker-beat.env
+    - path: ${ENVS_HOST:-./envs}/core-services/worker-beat.env
       required: false
-    - path: ./envs/security.env
+    - path: ${ENVS_HOST:-./envs}/security.env
       required: false
-    - path: ./envs/databases/db-postgres.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-postgres.env
       required: false
-    - path: ./envs/databases/db-mysql.env
+    - path: ${ENVS_HOST:-./envs}/databases/db-mysql.env
       required: false
-    - path: ./envs/databases/redis.env
+    - path: ${ENVS_HOST:-./envs}/databases/redis.env
       required: false
-    - path: ./envs/vectorstores/weaviate.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/weaviate.env
       required: false
-    - path: ./envs/vectorstores/qdrant.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/qdrant.env
       required: false
-    - path: ./envs/vectorstores/oceanbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oceanbase.env
       required: false
-    - path: ./envs/vectorstores/seekdb.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/seekdb.env
       required: false
-    - path: ./envs/vectorstores/couchbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/couchbase.env
       required: false
-    - path: ./envs/vectorstores/pgvector.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvector.env
       required: false
-    - path: ./envs/vectorstores/vastbase.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/vastbase.env
       required: false
-    - path: ./envs/vectorstores/pgvecto-rs.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/pgvecto-rs.env
       required: false
-    - path: ./envs/vectorstores/chroma.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/chroma.env
       required: false
-    - path: ./envs/vectorstores/iris.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/iris.env
       required: false
-    - path: ./envs/vectorstores/oracle.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/oracle.env
       required: false
-    - path: ./envs/vectorstores/opengauss.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opengauss.env
       required: false
-    - path: ./envs/vectorstores/myscale.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/myscale.env
       required: false
-    - path: ./envs/vectorstores/matrixone.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/matrixone.env
       required: false
-    - path: ./envs/vectorstores/elasticsearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/elasticsearch.env
       required: false
-    - path: ./envs/vectorstores/opensearch.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/opensearch.env
       required: false
-    - path: ./envs/vectorstores/milvus.env
+    - path: ${ENVS_HOST:-./envs}/vectorstores/milvus.env
       required: false
-    - path: ./envs/infrastructure/nginx.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/nginx.env
       required: false
-    - path: ./envs/infrastructure/certbot.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/certbot.env
       required: false
-    - path: ./envs/infrastructure/ssrf-proxy.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/ssrf-proxy.env
       required: false
-    - path: ./envs/infrastructure/etcd.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/etcd.env
       required: false
-    - path: ./envs/infrastructure/minio.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/minio.env
       required: false
-    - path: ./envs/infrastructure/milvus-standalone.env
+    - path: ${ENVS_HOST:-./envs}/infrastructure/milvus-standalone.env
       required: false
-    - ./.env
+    - ${DOT_ENV:-./.env}
   networks:
     - ssrf_proxy_network
     - default
@@ -375,11 +375,11 @@ services:
     image: langgenius/dify-web:1.14.1
     restart: always
     env_file:
-      - path: ./envs/core-services/web.env
+      - path: ${ENVS_HOST:-./envs}/core-services/web.env
         required: false
-      - path: ./envs/security.env
+      - path: ${ENVS_HOST:-./envs}/security.env
         required: false
-      - ./.env
+      - ${DOT_ENV:-./.env}
     environment:
       CONSOLE_API_URL: ${CONSOLE_API_URL:-}
       APP_API_URL: ${APP_API_URL:-}
@@ -497,11 +497,11 @@ services:
     image: langgenius/dify-sandbox:0.2.15
     restart: always
     env_file:
-      - path: ./envs/core-services/sandbox.env
+      - path: ${ENVS_HOST:-./envs}/core-services/sandbox.env
         required: false
-      - path: ./envs/security.env
+      - path: ${ENVS_HOST:-./envs}/security.env
         required: false
-      - ./.env
+      - ${DOT_ENV:-./.env}
     environment:
       # The DifySandbox configurations
       # Make sure you are changing this key for your deployment with a strong key.
@@ -527,19 +527,19 @@ services:
     image: langgenius/dify-plugin-daemon:0.6.0-local
     restart: always
     env_file:
-      - path: ./envs/core-services/shared.env
+      - path: ${ENVS_HOST:-./envs}/core-services/shared.env
         required: false
-      - path: ./envs/core-services/plugin-daemon.env
+      - path: ${ENVS_HOST:-./envs}/core-services/plugin-daemon.env
         required: false
-      - path: ./envs/security.env
+      - path: ${ENVS_HOST:-./envs}/security.env
         required: false
-      - path: ./envs/databases/db-postgres.env
+      - path: ${ENVS_HOST:-./envs}/databases/db-postgres.env
         required: false
-      - path: ./envs/databases/db-mysql.env
+      - path: ${ENVS_HOST:-./envs}/databases/db-mysql.env
         required: false
-      - path: ./envs/databases/redis.env
+      - path: ${ENVS_HOST:-./envs}/databases/redis.env
         required: false
-      - ./.env
+      - ${DOT_ENV:-./.env}
     networks:
       - ssrf_proxy_network
       - default
