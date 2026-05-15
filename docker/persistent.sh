@@ -22,7 +22,10 @@ sync() {
         mkdir -p $dir/envs/$(dirname $file)
         cp $file  $dir/envs/$file
         echo "sync $dir/envs/$file"
-    done    
+    done
+    cd ..
+    cp .env.example $dir/
+    echo "sync $dir/.env.example"
 }
 
 case "$1" in
